@@ -18,6 +18,7 @@ table, th, td {
 td{
   height: 30px;
   background-color: white;
+  width: 200px;
 }
 
 
@@ -38,4 +39,8 @@ h1{
   border-radius: 5px;
   width: 90px;
   box-shadow: 5px 5px 5px black;
+}
+
+p{
+  color: black;
 }
