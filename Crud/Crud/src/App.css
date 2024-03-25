@@ -1,0 +1,41 @@
+table {
+   /* Esto asegura que los bordes de las celdas se unan correctamente */
+  width: 800px;
+  text-align: center;
+  color: rgb(12, 58, 165);
+  font-size: larger;
+  font-weight: 600;
+
+}
+
+table, th, td {
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgb(22, 22, 126);
+}
+
+
+
+td{
+  height: 30px;
+  background-color: white;
+}
+
+
+
+.botones{
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  color: white(0, 20, 237, 0.723);
+  font-size:xx-large;
+}
+
+.botom{
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  width: 90px;
+  box-shadow: 5px 5px 5px black;
+}
