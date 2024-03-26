@@ -1,18 +1,14 @@
-import { useState, ChangeEvent, FormEvent } from 'react'
 import './App.css'
 import ShowDatos from './components' 
-
-export  type typedatos = {
-  uid:`${string}-${string}-${string}-${string}-${string}`,
-  name: string,
-  apellido: string
-}
+import { useState } from 'react';
 
 
-function App(): JSX.Element {
-  const [datos, setdatos] = useState<typedatos>({uid:crypto.randomUUID(), name: '', apellido: '' })
-  const [personas, setPersonas] = useState<typedatos[]>([]);
-  const Cambio = (e: ChangeEvent<HTMLInputElement>): void => {
+
+function App() {
+  const [datos, setdatos] = useState({uid:crypto.randomUUID(), name: '', apellido: '' })
+  const [personas, setPersonas] = useState([]);
+
+  const Cambio = (e) => {
     const {id, value} = e.target
     setdatos({...datos,
       uid:crypto.randomUUID(),
@@ -21,7 +17,7 @@ function App(): JSX.Element {
 
   }
 
-  const Estados = (e: FormEvent<HTMLFormElement>): void => { //React.FC Manjeador de estados                                      // <React> Indicamos que tipo de estado es
+  const Estados = (e) => { //React.FC Manjeador de estados                                      // <React> Indicamos que tipo de estado es
     e.preventDefault();
   };
 
@@ -31,6 +27,25 @@ function App(): JSX.Element {
   setdatos({ uid: crypto.randomUUID(), name: '', apellido: '' })
 
  }
+
+
+function onUpdate({uid,name,apellido}){
+  let tem = [...personas]
+  const datos = tem.find(ele => ele.uid === uid)
+  datos.name = name
+  datos.apellido = apellido
+
+  setPersonas([...tem])
+
+
+}
+
+function onDelete(uid){
+  let temp = personas.filter(ele => ele.uid !== uid)
+
+
+  setPersonas([...temp])
+}
 
 
   return (
@@ -68,9 +83,16 @@ function App(): JSX.Element {
         </table>
         </form>
 
-        {personas.map(e=>{
+        {personas.map(item=>{
 
-          return(<ShowDatos name={e.name} apellido={e.apellido} uid={e.uid} key={e.uid} />)
+          return(<ShowDatos 
+            key={item.uid}
+            name={item.name}
+            apellido={item.apellido}
+            uid={item.uid}
+            onUpdate={onUpdate}
+            onDelete={onDelete}
+            />)
 
         })
         
