@@ -1,0 +1,31 @@
+body{
+  background-color: rgba(2, 2, 2, 0.924);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div{
+  margin: 200px 0;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  width: 1200px;
+  gap: 20px;
+  
+}
+
+.data{
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: white 1px solid;
+  border-radius: 15px;
+  
+}
+
+img{
+  width: 80px;
+  height: 80px;
+}
