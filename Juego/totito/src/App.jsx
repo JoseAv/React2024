@@ -24,6 +24,7 @@ const [turno , setTurno]= useState(Turnos.X)
 const [board,setBoard] = useState(Array(9).fill(null))
 const [winner , setWinner] = useState(false)
 const [showWinner, setShowWinner] = useState('Empate')
+
 function ChangeTurn(index){
   let newBoard = [...board]
   if(winner === true){return}
@@ -84,13 +85,24 @@ function Reset(){
     </div>
 
     <div className='turn'>
+      { turno===Turnos.X ? 
+      <>
         <button className='square is-selected'>{Turnos.X}</button>
-        <button className='square is-selected'>{Turnos.O}</button>
+        <button className='square '>{Turnos.O}</button>
+        </>
+      :
+      <>  
+      <button className='square'>{Turnos.X}</button>
+      <button className='square is-selected'>{Turnos.O}</button>
+      </>
+      }
+
+
       </div>
 
 
       { winner? <div className='winner'>
-      <p className='text'>Gana {showWinner}</p>
+      <h1 className='text'>Gana {showWinner}</h1>
       <button onClick={Reset}>Reset</button>
      </div>: <p></p>}
 
